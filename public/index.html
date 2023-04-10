@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BG hangman</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+     </div>
+    <main> 
+        <h1>HANGMAN</h1>
+        
+        <div class="blocks">
+            <img src="images/stickman.jpg" alt="hangman">
+            <button onclick="redirectthepage()" class="start">START</button>
+        </div>
+
+
+    </main>
+    <script>
+        function redirectthepage(){
+            window.location.href = 'game.html'
+        }
+    </script>
+</body>
+</html>
