@@ -93,6 +93,13 @@ h1{
     align-items: center;
 }
 
+.block2{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
 .start{
     background: rgba( 255, 255, 255, 0.4 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -138,4 +145,33 @@ h1{
     height:50%;
     width:50%;
     flex-direction: column;
+    margin-top: 3%;
+}
+
+#answer{
+    color :white;
+    display: flex;
+    flex-direction: row;
+    font-size: 4rem;
+    margin-top: 3%;
+    margin-left: 12%;
+    
+
+}
+#answer div{
+    margin: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#clue{
+    color :white;
+    display: flex;
+    flex-direction: row;
+    font-size: 2rem;
+    margin-left: 17%;
+}
+
+.grey{
+    color: rgb(215, 45, 45);
 }
