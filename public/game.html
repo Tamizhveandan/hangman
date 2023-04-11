@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BG hangman</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
 </head>
-<body>
+<body id="body">
     <div>
         <div class="wave"></div>
         <div class="wave"></div>
@@ -15,50 +16,53 @@
      </div>
     <main>
         <h1>HANGMAN</h1>
-        <div class="block1">
-            <div id="images"></div>
-            <div id="life"></div>
-            
+        <div class="block">
+            <div class="block1">
+                <div id="images"></div>
+                <div id="life"></div>
+                <div class="restart" id="restart">RESTART</div>
+            </div>
+            <div class="block2">
+                <div id="clue"></div>
+                <div id="answer"></div>
+                <div class="alpha" id="alpha">
+                    <div class="line line1">
+                    <div class="l1 let">A</div>
+                    <div class="l2 let">B</div>
+                    <div class="l3 let">C</div>
+                    <div class="l4 let">D</div>
+                    <div class="l5 let">E</div>
+                    <div class="l6 let">F</div>
+                    <div class="l7 let">G</div>
+                    <div class="l8 let">H</div>
+                    <div class="l9 let">I</div>
+                </div>
+                <div class="line line2">
+                    <div class="l10 let">J</div>
+                    <div class="l11 let">K</div>
+                    <div class="l12 let">L</div>
+                    <div class="l13 let">M</div>
+                    <div class="l14 let">N</div>
+                    <div class="l15 let">O</div>
+                    <div class="l16 let">P</div>
+                    <div class="l17 let">Q</div>
+                    <div class="l18 let">R</div>
+                </div>
+                <div class="line line3">
+                    <div class="l19 let">S</div>
+                    <div class="l20 let">T</div>
+                    <div class="l21 let">U</div>
+                    <div class="l22 let">V</div>
+                    <div class="l23 let">W</div>
+                    <div class="l24 let">X</div>
+                    <div class="l25 let">Y</div>
+                    <div class="l26 let">Z</div>
+                </div>
+                    
+                </div>
+            </div>
         </div>
-        <div class="block2">
-            <div id="clue"></div>
-            <div id="answer"></div>
-            <div class="alpha" id="alpha">
-                <div class="line line1">
-                <div class="l1 let">A</div>
-                <div class="l2 let">B</div>
-                <div class="l3 let">C</div>
-                <div class="l4 let">D</div>
-                <div class="l5 let">E</div>
-                <div class="l6 let">F</div>
-                <div class="l7 let">G</div>
-                <div class="l8 let">H</div>
-                <div class="l9 let">I</div>
-            </div>
-            <div class="line line2">
-                <div class="l10 let">J</div>
-                <div class="l11 let">K</div>
-                <div class="l12 let">L</div>
-                <div class="l13 let">M</div>
-                <div class="l14 let">N</div>
-                <div class="l15 let">O</div>
-                <div class="l16 let">P</div>
-                <div class="l17 let">Q</div>
-                <div class="l18 let">R</div>
-            </div>
-            <div class="line line3">
-                <div class="l19 let">S</div>
-                <div class="l20 let">T</div>
-                <div class="l21 let">U</div>
-                <div class="l22 let">V</div>
-                <div class="l23 let">W</div>
-                <div class="l24 let">X</div>
-                <div class="l25 let">Y</div>
-                <div class="l26 let">Z</div>
-            </div>
-                
-            </div>
-        </div>
+        
     </main>
     <script src="script.js"></script>
 </body>

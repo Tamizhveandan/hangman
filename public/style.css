@@ -87,12 +87,24 @@ h1{
 }
 .blocks{
     width: 100%;
-    margin-top: 10%;
+    /* margin-top: 10%; */
     display: flex;
     justify-content:space-around;
     align-items: center;
 }
-
+/* gamepage */
+.block{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+.block1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 .block2{
     display: flex;
     justify-content: center;
@@ -110,10 +122,12 @@ h1{
     height: 10%;
     width: auto;
     font-size:xx-large;
+    padding: 10px;
 
 }
-.start:hover{
+.start:hover,.restart:hover{
     background: rgba( 255, 255, 255, 0.9 );
+    cursor: pointer;
 }
 h1{
     font-size: 4rem;
@@ -124,7 +138,7 @@ h1{
     justify-content: center;
     align-items: center;
     height: 20px;
-    
+    font-size: x-large;
     padding: 15px;
     margin: 2%;
     background: rgba( 255, 255, 255, 0.45 );
@@ -133,6 +147,7 @@ h1{
     -webkit-backdrop-filter: blur( 3.5px );
     border-radius: 5px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
+    cursor: pointer;
 }
 .line{
     display: flex;
@@ -154,7 +169,7 @@ h1{
     flex-direction: row;
     font-size: 4rem;
     margin-top: 3%;
-    margin-left: 12%;
+    margin-left: -20%;
     
 
 }
@@ -169,9 +184,106 @@ h1{
     display: flex;
     flex-direction: row;
     font-size: 2rem;
-    margin-left: 17%;
+    margin-left: -20%;
 }
 
-.grey{
-    color: rgb(215, 45, 45);
+#images{
+    height: 250px;
+    width: 250px;
+}
+
+#life{
+    color:white;
+    font-size: 1.5rem;
+    margin-top: 5%;
+}
+.restart{
+    background: rgba( 255, 255, 255, 0.4 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4.5px );
+    -webkit-backdrop-filter: blur( 4.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    height: auto;
+    width: auto;
+    font-size:xx-large;
+    padding: 10px;
+    visibility: hidden;
+
+}
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .blocks{
+        flex-direction: column;
+    }
+    .start{
+        margin-top: 5%;
+    }
+    h1{
+        font-size: 2.5rem;
+    }
+    .block{
+        flex-direction: column;
+    }
+    #images{
+        height: 250px;
+        width: 250px;
+    }
+    .let{
+        font-size: 2rem;
+        padding: 10px;
+    }
+    #answer{
+        font-size: 3rem;
+    }
+    #clue{
+        font-size: 2rem;
+    }
+    .block2{
+        margin-top: 10%;
+        margin-left: 9%;
+    }
+    .restart{
+        margin-top: 5%;
+        font-size: x-large;
+    }
+}
+@media screen and (max-width: 480px) {
+    .blocks{
+        flex-direction: column;
+    }
+    .start{
+        margin-top: 5%;
+    }
+    h1{
+        font-size: 2.5rem;
+    }
+    .block{
+        flex-direction: column;
+    }
+    #images{
+        height: 200px;
+        width: 200px;
+    }
+    .let{
+        font-size: 1rem;
+        padding: 7px;
+    }
+    #answer{
+        font-size: 2rem;
+    }
+    #clue{
+        font-size: 1rem;
+    }
+    .block2{
+        margin-top: 4%;
+        margin-left: 9%;
+    }
+    .restart{
+        margin-top: 5%;
+        font-size: large;
+    }
+    .alpha{
+        margin-top: 15%;
+    }
+    
 }

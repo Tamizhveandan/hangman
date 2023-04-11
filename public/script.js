@@ -114,13 +114,25 @@ const countries = [
     "triathlon",
     "decathlon"
   ];
+const fruits = ["apple", "banana", "orange", "grape", "watermelon", "pineapple", "strawberry", "mango", "kiwi", "peach", "pear", "apricot", "avocado", "blackberry", "blueberry", "cherry", "coconut", "fig", "grapefruit", "lemon", "lime", "papaya", "passionfruit", "pomegranate", "raspberry", "tangerine", "cantaloupe", "honeydew", "plum", "dragonfruit"];
+const vegetables = ["carrot", "broccoli", "spinach", "kale", "cabbage", "lettuce", "tomato", "potato", "cucumber", "bellpepper", "onion", "garlic", "ginger", "beetroot", "radish", "eggplant", "zucchini", "squash", "asparagus", "celery", "cauliflower", "artichoke", "sweet potato", "pumpkin", "peas", "corn", "green beans", "okra", "mushroom", "leek"];
+const cities = ["Tokyo", "NewYork", "London", "Paris", "Moscow", "Shanghai", "LosAngeles", "Chicago", "Berlin", "Sydney", "HongKong", "Dubai", "Singapore", "Barcelona", "Rome", "Toronto", "Mumbai", "chennai", "Vancouver", "San Francisco", "Seoul", "Madrid", "Melbourne", "Amsterdam", "Vienna", "Zurich", "Stockholm", "Copenhagen"];
+
 const cells = document.querySelectorAll('.let');
-const words = [countries,animals,sports];
+const words = [countries,animals,sports,fruits,vegetables,cities];
 const dict = {
   0:"country",
   1:"animal",
-  2:"sport"
+  2:"sport",
+  3:"fruit",
+  4:"vegetable",
+  5:"city"
 }
+// Create an array of boolean values for uppercase letters
+const uppercaseArray = Array(26).fill(true);
+
+// Get the ASCII code of 'A' to use as an offset
+const offset = 'A'.charCodeAt(0);
 
 // Generate a random index between 0 and the length of the array minus one
 const randomIndex = Math.floor(Math.random() * words.length);
@@ -136,8 +148,9 @@ const answer = document.getElementById('answer');
 var guess = "_".repeat(word.length);
 var life = 6;
 const rem_life = document.getElementById('life')
+const restart = document.getElementById("restart")
 
-rem_life.innerText = life;
+rem_life.innerText = `LIFE: ${life}`;
 checkinglife(life)
 missingWord(guess)
 function missingWord(guess){
@@ -165,10 +178,21 @@ cells.forEach(cell => {
 
 
 function checkingWords(text,gu,word){
+  if(gu == word || life <= 0){
+    return
+  }
+  var index = text.charCodeAt(0) - offset;
+  if(uppercaseArray[index] == false){
+    return
+  }
+  else{
+    uppercaseArray[index] = false;
+  }
   let new_guess = "";
   // console.log(text,gu,word)
   var flag = true;
   for(var i = 0;i<word.length;i++){
+    
     if(text == word[i]){
       new_guess += text;
       flag = false;
@@ -177,45 +201,72 @@ function checkingWords(text,gu,word){
       new_guess += gu[i];
     }
   }
+  
   if(flag){
     life -= 1;
+    if(life <= 0){
+      checkinglife(life)
+      document.getElementById("body").style.background = "red";
+      restart.style.visibility = "visible";
+      rem_life.innerText = "LOSE!";
+      // console.log(life)
+      return
+    }
     checkinglife(life)
   }
   guess = new_guess
+  if(guess == word){
+    document.getElementById("body").style.background = "green";
+    restart.style.visibility = "visible";
+    rem_life.innerText = "WIN!";
+    missingWord(guess)
+
+    return
+  }
   missingWord(guess)
 }
 
 function checkinglife(life){
   // console.log(life)
-  rem_life.innerText = life
+  rem_life.innerText = `LIFE: ${life}`
   if(life == 6){
-    document.getElementById("images").style.backgroundImage= "url(./images/life1.png)";
+    document.getElementById("images").style.backgroundImage= "url(images/life0.png)";
     document.getElementById("images").style.backgroundRepeat = "no-repeat";
     document.getElementById("images").style.backgroundSize = "cover";
   }
   if(life == 5){
-    document.getElementById("images").style.backgroundImage= "url(images/life2.png)";
+    document.getElementById("images").style.backgroundImage= "url(images/life1.png)";
     document.getElementById("images").style.backgroundRepeat = "no-repeat";
     document.getElementById("images").style.backgroundSize = "cover";
   }
   if(life == 4){
-    document.getElementById("images").style.backgroundImage= "url(images/life3.png)";
+    document.getElementById("images").style.backgroundImage= "url(images/life2.png)";
     document.getElementById("images").style.backgroundRepeat = "no-repeat";
     document.getElementById("images").style.backgroundSize = "cover";
   }
   if(life == 3){
-    document.getElementById("images").style.backgroundImage= "url(images/life4.png)";
+    document.getElementById("images").style.backgroundImage= "url(images/life3.png)";
     document.getElementById("images").style.backgroundRepeat = "no-repeat";
     document.getElementById("images").style.backgroundSize = "cover";
   }
   if(life == 2){
-    document.getElementById("images").style.backgroundImage= "url(images/life5.png)";
+    document.getElementById("images").style.backgroundImage= "url(images/life4.png)";
     document.getElementById("images").style.backgroundRepeat = "no-repeat";
     document.getElementById("images").style.backgroundSize = "cover";
   }
   if(life == 1){
+    document.getElementById("images").style.backgroundImage= "url(images/life5.png)";
+    document.getElementById("images").style.backgroundRepeat = "no-repeat";
+    document.getElementById("images").style.backgroundSize = "cover";
+  }
+  if(life == 0){
     document.getElementById("images").style.backgroundImage= "url(images/life6.png)";
     document.getElementById("images").style.backgroundRepeat = "no-repeat";
     document.getElementById("images").style.backgroundSize = "cover";
   }
+  
 }
+
+restart.addEventListener("click",()=>{
+  location.reload();
+})
