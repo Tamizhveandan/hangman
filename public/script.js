@@ -208,7 +208,7 @@ function checkingWords(text,gu,word){
       checkinglife(life)
       document.getElementById("body").style.background = "red";
       restart.style.visibility = "visible";
-      rem_life.innerText = "LOSE!";
+      // rem_life.innerText = "LOSE!";
       // console.log(life)
       return
     }
@@ -218,7 +218,7 @@ function checkingWords(text,gu,word){
   if(guess == word){
     document.getElementById("body").style.background = "green";
     restart.style.visibility = "visible";
-    rem_life.innerText = "WIN!";
+    // rem_life.innerText = "WIN!";
     missingWord(guess)
 
     return
